@@ -1,0 +1,38 @@
+{
+  "name": "text-autowidth-middle-ellipsis",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "A utility that applies middle ellipsis to text that doesn't fit its container",
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "rslib build",
+    "check": "biome check --write",
+    "dev": "rslib build --watch",
+    "format": "biome format --write",
+    "test": "vitest run",
+    "prepublishOnly": "npm run format && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@rslib/core": "^0.5.4",
+    "@types/node": "^22.8.1",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.8"
+  },
+  "private": false,
+  "author": "ShaokangFeng",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudmoonocus/text-autowidth-middle-ellipsis.git"
+  }
+}
