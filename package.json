@@ -1,6 +1,6 @@
 {
   "name": "text-utilities",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "type": "module",
   "description": "Collection of text manipulation utilities for web applications",
   "main": "dist/index.js",
