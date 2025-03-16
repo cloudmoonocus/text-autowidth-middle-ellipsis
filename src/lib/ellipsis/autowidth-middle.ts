@@ -1,45 +1,27 @@
-function createTempSpan(): HTMLSpanElement {
-  if (
-    typeof window === 'undefined' ||
-    !window.document ||
-    !window.document.body
-  ) {
-    throw new Error(
-      'textAutoWidthMiddleEllipsis: Document or body is not available. This function can only be used in browser environments.',
-    );
-  }
-  const tempSpan = window.document.createElement('span');
-  tempSpan.style.visibility = 'hidden';
-  tempSpan.style.position = 'fixed';
-  tempSpan.style.top = '-999px';
-  window.document.body.appendChild(tempSpan);
-  return tempSpan;
-}
+import type { NullableHTMLElement, NullableStringOrNumber } from '@/types';
+import { createTempSpan } from '@/utils';
 
-export default function textAutoWidthMiddleEllipsis(
-  el: HTMLElement | null | undefined,
-  fullText: string | null | undefined,
-): void {
+/**
+ * The middle of a single line is omitted
+ * @param el Target HTML element
+ * @param fullText The full text to be displayed
+ */
+export default function autowidthMiddle<T extends NullableHTMLElement>(el: T, fullText: NullableStringOrNumber): T {
   if (!el) {
-    throw new Error('textAutoWidthMiddleEllipsis: HTMLElement is required');
+    throw new Error('HTMLElement is required');
   }
 
   if (fullText === null || fullText === undefined) {
-    console.warn(
-      'textAutoWidthMiddleEllipsis: Received null or undefined text, using empty string',
-    );
     el.textContent = '';
-    return;
+    return el;
   }
 
   const textToUse = String(fullText);
   const containerWidth = el.offsetWidth;
   if (containerWidth <= 0) {
-    console.warn(
-      'textAutoWidthMiddleEllipsis: Container has zero or negative width. Text may not display correctly.',
-    );
+    console.warn('textAutoWidthMiddleEllipsis: Container has zero or negative width. Text may not display correctly.');
     el.textContent = textToUse;
-    return;
+    return el;
   }
 
   let tempSpan: HTMLSpanElement;
@@ -48,7 +30,7 @@ export default function textAutoWidthMiddleEllipsis(
   } catch (error) {
     console.error(error);
     el.textContent = textToUse;
-    return;
+    return el;
   }
 
   try {
@@ -58,7 +40,7 @@ export default function textAutoWidthMiddleEllipsis(
 
     if (tempSpan.offsetWidth <= containerWidth) {
       el.textContent = textToUse;
-      return;
+      return el;
     }
 
     const ellipsis = '...';
@@ -72,23 +54,18 @@ export default function textAutoWidthMiddleEllipsis(
       endText = textToUse.slice(Math.min(endIndex, textToUse.length));
       tempSpan.textContent = `${startText}${ellipsis}${endText}`;
 
-      if (
-        startIndex <= 0 &&
-        endIndex >= textToUse.length &&
-        tempSpan.offsetWidth > containerWidth
-      ) {
+      if (startIndex <= 0 && endIndex >= textToUse.length && tempSpan.offsetWidth > containerWidth) {
         tempSpan.textContent = ellipsis;
         break;
       }
     }
 
     el.textContent = tempSpan.textContent;
+    return el;
   } catch (error) {
-    console.error(
-      'textAutoWidthMiddleEllipsis: Error during processing',
-      error,
-    );
+    console.error('textAutoWidthMiddleEllipsis: Error during processing', error);
     el.textContent = textToUse;
+    return el;
   } finally {
     if (tempSpan?.parentNode) {
       window.document.body.removeChild(tempSpan);

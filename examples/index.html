@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Utilities Examples</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<h1>Text Utilities Examples</h1>
+
+<nav>
+    <ul>
+        <li><a href="#autowidth-middle">Autowidth Middle Ellipsis</a></li>
+        <li><a href="#end-ellipsis">End Ellipsis</a></li>
+        <li><a href="#highlight">Highlight Matches</a></li>
+        <li><a href="#camel-case">To Camel Case</a></li>
+        <li><a href="#kebab-case">To Kebab Case</a></li>
+    </ul>
+</nav>
+
+<!-- Autowidth Middle Ellipsis Section -->
+<section id="autowidth-middle" class="example-section">
+    <h2>Autowidth Middle Ellipsis</h2>
+    <div class="example-container">
+        <h3>Basic Usage</h3>
+        <div id="middle-example1" class="text-container" style="width: 200px;"></div>
+        <div class="original-text">Original text: "This is a long text that won't fit in the container and will be truncated in the middle"</div>
+    </div>
+
+    <div class="example-container">
+        <h3>Different Container Widths</h3>
+        <div id="middle-example2-narrow" class="text-container" style="width: 150px;"></div>
+        <div id="middle-example2-medium" class="text-container" style="width: 300px;"></div>
+        <div id="middle-example2-wide" class="text-container" style="width: 500px;"></div>
+    </div>
+
+    <div class="example-container">
+        <h3>Adjustable Width</h3>
+        <div id="middle-example3" class="text-container"></div>
+        <div class="controls">
+            <input type="range" id="widthSlider" min="50" max="600" value="300">
+            <span id="widthValue" class="width-display">Width: 300px</span>
+        </div>
+    </div>
+</section>
+
+<!-- End Ellipsis Section -->
+<section id="end-ellipsis" class="example-section">
+    <h2>End Ellipsis</h2>
+    <div class="example-container">
+        <h3>Basic Usage</h3>
+        <div id="end-example1" class="text-container" style="width: 200px;"></div>
+        <div class="original-text">Original text: "This text will be truncated at the end with an ellipsis if it doesn't fit"</div>
+    </div>
+
+    <div class="example-container">
+        <h3>Different Container Widths</h3>
+        <div id="end-example2-narrow" class="text-container" style="width: 150px;"></div>
+        <div id="end-example2-medium" class="text-container" style="width: 300px;"></div>
+        <div id="end-example2-wide" class="text-container" style="width: 500px;"></div>
+    </div>
+</section>
+
+<!-- Highlight Matches Section -->
+<section id="highlight" class="example-section">
+    <h2>Highlight Matches</h2>
+    <div class="example-container">
+        <h3>Basic Usage</h3>
+        <div class="controls">
+            <div>Original text: "The quick brown fox jumps over the lazy dog"</div>
+            <input type="text" id="highlight-search" placeholder="Enter search term" value="fox">
+            <button id="highlight-button">Highlight</button>
+        </div>
+        <div id="highlight-result" class="result"></div>
+    </div>
+
+    <div class="example-container">
+        <h3>Custom Styling</h3>
+        <div class="controls">
+            <div>Original text: "The quick brown fox jumps over the lazy dog"</div>
+            <input type="text" id="highlight-custom-search" placeholder="Enter search term" value="jump">
+            <select id="highlight-tag">
+                <option value="mark">mark</option>
+                <option value="span">span</option>
+                <option value="strong">strong</option>
+            </select>
+            <input type="text" id="highlight-class" placeholder="CSS class" value="highlight">
+            <input type="text" id="highlight-style" placeholder="Inline style" value="background-color: yellow">
+            <button id="highlight-custom-button">Highlight</button>
+        </div>
+        <div id="highlight-custom-result" class="result"></div>
+    </div>
+</section>
+
+<!-- To Camel Case Section -->
+<section id="camel-case" class="example-section">
+    <h2>To Camel Case</h2>
+    <div class="example-container">
+        <h3>Convert Different Formats</h3>
+        <div class="controls">
+            <input type="text" id="camel-case-input" placeholder="Enter text to convert" value="hello-world">
+            <button id="camel-case-button">Convert</button>
+        </div>
+        <div id="camel-case-result" class="result"></div>
+
+        <div class="examples">
+            <h4>Examples:</h4>
+            <ul id="camel-case-examples"></ul>
+        </div>
+    </div>
+</section>
+
+<!-- To Kebab Case Section -->
+<section id="kebab-case" class="example-section">
+    <h2>To Kebab Case</h2>
+    <div class="example-container">
+        <h3>Convert Different Formats</h3>
+        <div class="controls">
+            <input type="text" id="kebab-case-input" placeholder="Enter text to convert" value="helloWorld">
+            <button id="kebab-case-button">Convert</button>
+        </div>
+        <div id="kebab-case-result" class="result"></div>
+
+        <div class="examples">
+            <h4>Examples:</h4>
+            <ul id="kebab-case-examples"></ul>
+        </div>
+    </div>
+</section>
+
+<script type="module" src="./script.js"></script>
+</body>
+</html>
