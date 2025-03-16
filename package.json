@@ -1,6 +1,6 @@
 {
   "name": "text-utilities",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "type": "module",
   "description": "Collection of text manipulation utilities for web applications",
   "main": "dist/index.js",
@@ -12,7 +12,9 @@
   },
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "rslib build",
     "check": "biome check --write",
@@ -32,7 +34,7 @@
   "author": "ShaokangFeng",
   "license": "MIT",
   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/cloudmoonocus/text-utilities.git"
+    "type": "git",
+    "url": "git+https://github.com/cloudmoonocus/text-utilities.git"
   }
 }
