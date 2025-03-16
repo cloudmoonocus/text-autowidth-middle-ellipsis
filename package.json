@@ -1,8 +1,8 @@
 {
-  "name": "text-autowidth-middle-ellipsis",
+  "name": "text-utilities",
   "version": "0.0.1",
   "type": "module",
-  "description": "A utility that applies middle ellipsis to text that doesn't fit its container",
+  "description": "Collection of text manipulation utilities for web applications",
   "main": "dist/index.js",
   "exports": {
     ".": {
@@ -32,7 +32,7 @@
   "author": "ShaokangFeng",
   "license": "MIT",
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cloudmoonocus/text-autowidth-middle-ellipsis.git"
+      "type": "git",
+      "url": "git+https://github.com/cloudmoonocus/text-utilities.git"
   }
 }
