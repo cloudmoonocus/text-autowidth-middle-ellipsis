@@ -1,8 +1,16 @@
 {
-  "name": "text-utilities",
-  "version": "0.0.1",
+  "name": "text-utilities-pro",
+  "version": "0.1.0",
   "type": "module",
   "description": "Collection of text manipulation utilities for web applications",
+  "keywords": [
+    "text",
+    "utilities",
+    "string",
+    "manipulation",
+    "web",
+    "javascript"
+  ],
   "main": "dist/index.js",
   "exports": {
     ".": {
@@ -32,7 +40,7 @@
   "author": "ShaokangFeng",
   "license": "MIT",
   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/cloudmoonocus/text-utilities.git"
+    "type": "git",
+    "url": "git+https://github.com/cloudmoonocus/text-utilities-pro.git"
   }
 }

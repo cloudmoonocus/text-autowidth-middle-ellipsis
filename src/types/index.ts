@@ -6,4 +6,11 @@ type NullableStringOrNumber = Nullable<string | number>;
 type NullableBoolean = Nullable<boolean>;
 type NullableHTMLElement = Nullable<HTMLElement>;
 
-export type { Nullable, NullableString, NullableNumber, NullableStringOrNumber, NullableBoolean, NullableHTMLElement };
+export type {
+  Nullable,
+  NullableString,
+  NullableNumber,
+  NullableStringOrNumber,
+  NullableBoolean,
+  NullableHTMLElement,
+};

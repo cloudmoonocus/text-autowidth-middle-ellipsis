@@ -12,7 +12,9 @@ export default function toCamelCase(text: NullableString): string {
   }
 
   try {
-    return textToUse.replace(/[-_\s]+(.)?/g, (_, c) => (c ? c.toUpperCase() : '')).replace(/^[A-Z]/, (match) => match.toLowerCase());
+    return textToUse
+      .replace(/[-_\s]+(.)?/g, (_, c) => (c ? c.toUpperCase() : ''))
+      .replace(/^[A-Z]/, (match) => match.toLowerCase());
   } catch (error) {
     console.error('toCamelCase: Error during processing', error);
     return textToUse;

@@ -31,7 +31,9 @@ afterEach(() => {
 });
 
 test('should throw error when element is null', () => {
-  expect(() => autowidthMiddle(null, 'test text')).toThrow('HTMLElement is required');
+  expect(() => autowidthMiddle(null, 'test text')).toThrow(
+    'HTMLElement is required',
+  );
 });
 
 test('should handle null or undefined text', () => {
@@ -64,17 +66,25 @@ test('should apply middle ellipsis when text does not fit', () => {
     style: {},
     textContent: '',
     get offsetWidth() {
-      return this.textContent === 'Very long text that should not fit in the container' ? 300 : this.textContent.length * 5;
+      return this.textContent ===
+        'Very long text that should not fit in the container'
+        ? 300
+        : this.textContent.length * 5;
     },
     parentNode: true,
   };
 
   document.createElement = vi.fn().mockReturnValue(mockTempSpan);
 
-  autowidthMiddle(mockElement, 'Very long text that should not fit in the container');
+  autowidthMiddle(
+    mockElement,
+    'Very long text that should not fit in the container',
+  );
 
   expect(mockElement.textContent).toContain('...');
-  expect(mockElement.textContent?.length).toBeLessThan('Very long text that should not fit in the container'.length);
+  expect(mockElement.textContent?.length).toBeLessThan(
+    'Very long text that should not fit in the container'.length,
+  );
 });
 
 test('should handle container with zero width', () => {
@@ -86,7 +96,9 @@ test('should handle container with zero width', () => {
   const consoleSpy = vi.spyOn(console, 'warn');
   autowidthMiddle(mockElement, 'Test text');
 
-  expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('zero or negative width'));
+  expect(consoleSpy).toHaveBeenCalledWith(
+    expect.stringContaining('zero or negative width'),
+  );
   expect(mockElement.textContent).toBe('Test text');
 });
 

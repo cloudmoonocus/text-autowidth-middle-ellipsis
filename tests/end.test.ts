@@ -22,7 +22,9 @@ afterEach(() => {
 });
 
 test('should throw error when element is null', () => {
-  expect(() => endEllipsis(null, 'test text')).toThrow('HTMLElement is required');
+  expect(() => endEllipsis(null, 'test text')).toThrow(
+    'HTMLElement is required',
+  );
 });
 
 test('should handle null or undefined text', () => {

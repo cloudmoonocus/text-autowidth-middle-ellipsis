@@ -6,7 +6,10 @@ import { createTempSpan } from '@/utils';
  * @param el Target HTML element
  * @param fullText The full text to be displayed
  */
-export default function autowidthMiddle<T extends NullableHTMLElement>(el: T, fullText: NullableStringOrNumber): T {
+export default function autowidthMiddle<T extends NullableHTMLElement>(
+  el: T,
+  fullText: NullableStringOrNumber,
+): T {
   if (!el) {
     throw new Error('HTMLElement is required');
   }
@@ -19,7 +22,9 @@ export default function autowidthMiddle<T extends NullableHTMLElement>(el: T, fu
   const textToUse = String(fullText);
   const containerWidth = el.offsetWidth;
   if (containerWidth <= 0) {
-    console.warn('textAutoWidthMiddleEllipsis: Container has zero or negative width. Text may not display correctly.');
+    console.warn(
+      'textAutoWidthMiddleEllipsis: Container has zero or negative width. Text may not display correctly.',
+    );
     el.textContent = textToUse;
     return el;
   }
@@ -54,7 +59,11 @@ export default function autowidthMiddle<T extends NullableHTMLElement>(el: T, fu
       endText = textToUse.slice(Math.min(endIndex, textToUse.length));
       tempSpan.textContent = `${startText}${ellipsis}${endText}`;
 
-      if (startIndex <= 0 && endIndex >= textToUse.length && tempSpan.offsetWidth > containerWidth) {
+      if (
+        startIndex <= 0 &&
+        endIndex >= textToUse.length &&
+        tempSpan.offsetWidth > containerWidth
+      ) {
         tempSpan.textContent = ellipsis;
         break;
       }
@@ -63,7 +72,10 @@ export default function autowidthMiddle<T extends NullableHTMLElement>(el: T, fu
     el.textContent = tempSpan.textContent;
     return el;
   } catch (error) {
-    console.error('textAutoWidthMiddleEllipsis: Error during processing', error);
+    console.error(
+      'textAutoWidthMiddleEllipsis: Error during processing',
+      error,
+    );
     el.textContent = textToUse;
     return el;
   } finally {

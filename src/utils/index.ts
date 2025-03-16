@@ -1,6 +1,12 @@
 function createTempSpan(): HTMLSpanElement {
-  if (typeof window === 'undefined' || !window.document || !window.document.body) {
-    throw new Error('Document or body is not available. This function can only be used in browser environments.');
+  if (
+    typeof window === 'undefined' ||
+    !window.document ||
+    !window.document.body
+  ) {
+    throw new Error(
+      'Document or body is not available. This function can only be used in browser environments.',
+    );
   }
   const tempSpan = window.document.createElement('span');
   tempSpan.style.visibility = 'hidden';

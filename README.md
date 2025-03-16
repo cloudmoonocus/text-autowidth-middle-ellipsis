@@ -1,17 +1,17 @@
-# Text Utilities
+# Text Utilities Pro
 
 A lightweight collection of text manipulation utilities for web applications.
 
 ## Installation
 
 ```bash
-npm install text-utilities
+npm install text-utilities-pro
 ```
 
 or
 
 ```bash
-yarn add text-utilities
+yarn add text-utilities-pro
 ```
 
 ## Features
@@ -36,7 +36,7 @@ import {
   highlightMatches,
   toCamelCase,
   toKebabCase 
-} from 'text-utilities';
+} from 'text-utilities-pro';
 
 // Examples for each utility
 const element = document.getElementById('my-element');
