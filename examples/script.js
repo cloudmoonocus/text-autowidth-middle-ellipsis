@@ -4,7 +4,7 @@ import {
   highlightMatches,
   toCamelCase,
   toKebabCase,
-} from '/dist/index.js';
+} from 'https://cdn.jsdelivr.net/npm/text-utilities-pro@latest/dist/index.js';
 
 // 导航
 document.querySelectorAll('nav a').forEach((anchor) => {

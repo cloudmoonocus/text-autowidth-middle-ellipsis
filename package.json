@@ -2,6 +2,7 @@
   "name": "text-utilities-pro",
   "version": "0.1.0",
   "type": "module",
+  "homepage": "https://cloudmoonocus.github.io/text-utilities-pro/examples/index.html",
   "description": "Collection of text manipulation utilities for web applications",
   "keywords": [
     "text",
